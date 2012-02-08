@@ -4,6 +4,26 @@ Paul Woods
 
 This grails 2.0 plugin runs jsLint on the javascript of your application.
 
+
+How to Use
+
+1. just install the plugin to your application
+
+grails install-plugin jslint
+
+
+2. Then run the plugin
+
+grails jslint
+
+
+3. And review the report
+
+<appname>\target\jslint.html
+
+
+
+
 What is does
 
 1. It loads the javascript in your application

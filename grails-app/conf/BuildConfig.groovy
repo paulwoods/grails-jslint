@@ -2,36 +2,36 @@ grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
 grails.project.target.level = 1.6
+//grails.project.war.file = "target/${appName}-${appVersion}.war"
 
 grails.project.dependency.resolution = {
+    // inherit Grails' default dependencies
+    inherits("global") {
+        // uncomment to disable ehcache
+        // excludes 'ehcache'
+    }
+    log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
+    repositories {
+        grailsCentral()
+        // uncomment the below to enable remote dependency resolution
+        // from public Maven repositories
+        //mavenCentral()
+        //mavenLocal()
+        //mavenRepo "http://snapshots.repository.codehaus.org"
+        //mavenRepo "http://repository.codehaus.org"
+        //mavenRepo "http://download.java.net/maven/2/"
+        //mavenRepo "http://repository.jboss.com/maven2/"
+    }
+    dependencies {
+        // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-	inherits("global") {
-	}
+        // runtime 'mysql:mysql-connector-java:5.1.5'
+    }
 
-	log "warn"
-
-	repositories {
-		mavenCentral()
-        grailsPlugins()
-	}
-
-	dependencies {
-		compile  "com.googlecode.jslint4java:jslint4java:2.0.1"
-		compile  "commons-lang:commons-lang:2.6"
-	}
-
-	plugins {
-		build (":release:1.0.1") { export = false }
-	}
+    plugins {
+        build(":tomcat:$grailsVersion",
+              ":release:1.0.0") {
+            export = false
+        }
+    }
 }
-
-boolean snapshot = new File("application.properties").text.contains("-SNAPSHOT")
-
-if(snapshot) {
-	grails.project.repos.default = "snapshot"
-	grails.project.repos.snapshot.url = "http://dta0459765.am.dhcp.ti.com:9003/artifactory/libs-snapshot-local"
-} else {
-	grails.project.repos.default = "release"
-	grails.project.repos.release.url = "http://dta0459765.am.dhcp.ti.com:9003/artifactory/libs-release-local"
-}
-

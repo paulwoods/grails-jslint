@@ -1,4 +1,4 @@
-class JslintGrailsPlugin {
+class GrailsJslintGrailsPlugin {
 
     def version = "1.0.0-SNAPSHOT"
 
@@ -9,23 +9,19 @@ class JslintGrailsPlugin {
     def pluginExcludes = [
     ]
 
-    def title = "Jslint Plugin" 
+    def title = "Grails jsLint Plugin" 
 
     def author = "Paul Woods"
 
     def authorEmail = "mr.paul.woods@gmail.com"
 
-    def description = '''\
-This plugin runs jsLint on the javascript of your application.
-'''
+    def description = """This plugin runs jsLint on the javascript of your application."""
 
     def documentation = "http://grails.org/plugin/jslint"
 
-    //def organization = [ name: "Texas Instruments", url: "http://www.ti.com/" ]
+    def issueManagement = [ system: "GitHub", url: "https://github.com/paulwoods/grails-jslint/issues" ]
 
-    // def issueManagement = [ system: "JIRA", url: "http://jira.grails.org/browse/GPMYPLUGIN" ]
-
-    // def scm = [ url: "http://svn.grails-plugins.codehaus.org/browse/grails-plugins/" ]
+    def scm = [ url: "git@github.com:paulwoods/grails-jslint.git" ]
 
     def doWithWebDescriptor = { xml ->
     }
